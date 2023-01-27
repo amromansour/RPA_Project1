@@ -1,6 +1,6 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="1150,4272" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:uascw="clr-namespace:UiPath.Activities.System.Compression.Workflow;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="1150,4272" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:uascw="clr-namespace:UiPath.Activities.System.Compression.Workflow;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="43">
+    <scg:List x:TypeArguments="x:String" Capacity="44">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -44,6 +44,7 @@
       <x:String>UiPath.Activities.System.Compression.Workflow</x:String>
       <x:String>UiPath.Shared.Activities.Business</x:String>
       <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.Globalization</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -112,18 +113,19 @@
       <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="873.3333333333334,4207.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="918,7217.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="isFileExistsInDownloads" />
       <Variable x:TypeArguments="x:Boolean" Name="isFileExistsInFiles" />
       <Variable x:TypeArguments="x:String" Name="fileName" />
+      <Variable x:TypeArguments="s:DateTime" Name="fileDate" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Firefox: /C:/Users/amansour/AppData/Local/UiPath/UiPath.Common/22.12.50.10136/BrowserExt" sap:VirtualizedContainerService.HintSize="811.3333333333334,891.3333333333334" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" InteractionMode="Simulate" ScopeGuid="8eb4dda3-f9d8-4b15-af71-7e4b881f2079" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Firefox: /C:/Users/amansour/AppData/Local/UiPath/UiPath.Common/22.12.50.10136/BrowserExt" sap:VirtualizedContainerService.HintSize="856,891.3333333333334" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" InteractionMode="Simulate" ScopeGuid="8eb4dda3-f9d8-4b15-af71-7e4b881f2079" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -154,93 +156,71 @@
         <uix:TargetApp Area="-11, -11, 1942, 1042" BrowserType="Firefox" IconBase64="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" InformativeScreenshot="c19110758c3e042012029a1e14c27532.png" Selector="&lt;html app='firefox.exe' url='https://github.com/udacity/cd00284-intro-to-RPA-with-UiPath-project' /&gt;" Url="https://github.com/udacity/cd00284-intro-to-RPA-with-UiPath-project" />
       </uix:NApplicationCard.TargetApp>
     </uix:NApplicationCard>
-    <ui:FileExistsX DisplayName="File Exists" sap:VirtualizedContainerService.HintSize="811.3333333333334,136.66666666666666" sap2010:WorkflowViewState.IdRef="FileExistsX_2" Path="C:\\Users\\amansour\\Downloads\\cd00284-intro-to-RPA-with-UiPath-project-main.zip">
+    <ui:FileExistsX DisplayName="File Exists" sap:VirtualizedContainerService.HintSize="856,136.66666666666666" sap2010:WorkflowViewState.IdRef="FileExistsX_2" Path="C:\\Users\\amansour\\Downloads\\cd00284-intro-to-RPA-with-UiPath-project-main.zip">
       <ui:FileExistsX.Exists>
         <OutArgument x:TypeArguments="x:Boolean">
           <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">isFileExistsInDownloads</CSharpReference>
         </OutArgument>
       </ui:FileExistsX.Exists>
     </ui:FileExistsX>
-    <If sap:VirtualizedContainerService.HintSize="811.3333333333334,655.3333333333334" sap2010:WorkflowViewState.IdRef="If_2">
-      <If.Condition>
-        <InArgument x:TypeArguments="x:Boolean">
-          <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">isFileExistsInDownloads</CSharpValue>
-        </InArgument>
-      </If.Condition>
-      <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="400,275.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_5">
+    <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="856,556.6666666666666" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+      <ui:InterruptibleDoWhile.Body>
+        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="462,386" sap2010:WorkflowViewState.IdRef="Sequence_20">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="Files" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="338,164.66666666666666" sap2010:WorkflowViewState.IdRef="MoveFile_1">
-            <ui:MoveFile.Path>
-              <InArgument x:TypeArguments="x:String">
-                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">"C:\\Users\\"+ Environment.UserName+"\\Downloads\\cd00284-intro-to-RPA-with-UiPath-project-main.zip"</CSharpValue>
-              </InArgument>
-            </ui:MoveFile.Path>
-          </ui:MoveFile>
+          <Sequence sap:VirtualizedContainerService.HintSize="400,275.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="Files" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="338,164.66666666666666" sap2010:WorkflowViewState.IdRef="MoveFile_1">
+              <ui:MoveFile.Path>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">"C:\\Users\\"+ Environment.UserName+"\\Downloads\\cd00284-intro-to-RPA-with-UiPath-project-main.zip"</CSharpValue>
+                </InArgument>
+              </ui:MoveFile.Path>
+            </ui:MoveFile>
+          </Sequence>
         </Sequence>
-      </If.Then>
-      <If.Else>
-        <Sequence sap:VirtualizedContainerService.HintSize="400,197.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_6">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="338,86.66666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_1">
-            <ui:MessageBox.Text>
-              <InArgument x:TypeArguments="x:Object">
-                <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">"No file in the Downloads Folder"</CSharpValue>
-              </InArgument>
-            </ui:MessageBox.Text>
-          </ui:MessageBox>
-        </Sequence>
-      </If.Else>
-    </If>
-    <ui:FileExistsX DisplayName="File Exists" sap:VirtualizedContainerService.HintSize="811.3333333333334,136.66666666666666" sap2010:WorkflowViewState.IdRef="FileExistsX_3" Path="Files\\cd00284-intro-to-RPA-with-UiPath-project-main.zip">
+      </ui:InterruptibleDoWhile.Body>
+      <ui:InterruptibleDoWhile.Condition>
+        <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_23">!isFileExistsInDownloads</CSharpValue>
+      </ui:InterruptibleDoWhile.Condition>
+    </ui:InterruptibleDoWhile>
+    <ui:FileExistsX DisplayName="File Exists" sap:VirtualizedContainerService.HintSize="856,136.66666666666666" sap2010:WorkflowViewState.IdRef="FileExistsX_3" Path="Files\\cd00284-intro-to-RPA-with-UiPath-project-main.zip">
       <ui:FileExistsX.Exists>
         <OutArgument x:TypeArguments="x:Boolean">
           <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_5">isFileExistsInFiles</CSharpReference>
         </OutArgument>
       </ui:FileExistsX.Exists>
     </ui:FileExistsX>
-    <If sap:VirtualizedContainerService.HintSize="811.3333333333334,705.3333333333334" sap2010:WorkflowViewState.IdRef="If_3">
-      <If.Condition>
-        <InArgument x:TypeArguments="x:Boolean">
-          <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">isFileExistsInFiles</CSharpValue>
-        </InArgument>
-      </If.Condition>
-      <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="400,325.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_8">
+    <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="856,606.6666666666666" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_2">
+      <ui:InterruptibleDoWhile.Body>
+        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="462,436" sap2010:WorkflowViewState.IdRef="Sequence_21">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <uascw:ExtractFiles Content="{x:Null}" DestinationFolderInfo="{x:Null}" File="{x:Null}" Password="{x:Null}" CodePage="Default" DestinationFolder="Files" DisplayName="Extract/Unzip Files" ExtractToADedicatedFolder="False" FileToExtract="Files\\cd00284-intro-to-RPA-with-UiPath-project-main.zip" sap:VirtualizedContainerService.HintSize="338,214.66666666666666" sap2010:WorkflowViewState.IdRef="ExtractFiles_1" SkipUnsupportedFiles="False" />
+          <Sequence sap:VirtualizedContainerService.HintSize="400,325.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_8">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uascw:ExtractFiles Content="{x:Null}" DestinationFolderInfo="{x:Null}" File="{x:Null}" Password="{x:Null}" CodePage="Default" DestinationFolder="Files" DisplayName="Extract/Unzip Files" ExtractToADedicatedFolder="False" FileToExtract="Files\\cd00284-intro-to-RPA-with-UiPath-project-main.zip" sap:VirtualizedContainerService.HintSize="338,214.66666666666666" sap2010:WorkflowViewState.IdRef="ExtractFiles_1" SkipUnsupportedFiles="False" />
+          </Sequence>
         </Sequence>
-      </If.Then>
-      <If.Else>
-        <Sequence sap:VirtualizedContainerService.HintSize="400,197.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_9">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="338,86.66666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_2">
-            <ui:MessageBox.Text>
-              <InArgument x:TypeArguments="x:Object">
-                <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">"File Does not exist in Files Folder"</CSharpValue>
-              </InArgument>
-            </ui:MessageBox.Text>
-          </ui:MessageBox>
-        </Sequence>
-      </If.Else>
-    </If>
-    <ui:ForEachFileX DisplayName="For Each File in Folder" Folder="Files\\cd00284-intro-to-RPA-with-UiPath-project-main" sap:VirtualizedContainerService.HintSize="811.3333333333334,1371.3333333333333" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
+      </ui:InterruptibleDoWhile.Body>
+      <ui:InterruptibleDoWhile.Condition>
+        <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_24">!isFileExistsInFiles</CSharpValue>
+      </ui:InterruptibleDoWhile.Condition>
+    </ui:InterruptibleDoWhile>
+    <ui:ForEachFileX DisplayName="For Each File in Folder" Folder="Files\\cd00284-intro-to-RPA-with-UiPath-project-main" sap:VirtualizedContainerService.HintSize="856,4578.666666666667" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
       <ui:ForEachFileX.Body>
         <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
           <ActivityAction.Argument1>
@@ -249,29 +229,26 @@
           <ActivityAction.Argument2>
             <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
           </ActivityAction.Argument2>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="777.3333333333334,1109.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_12">
-            <Sequence.Variables>
-              <Variable x:TypeArguments="x:String" Name="date" />
-            </Sequence.Variables>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="822,4316.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_12">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <If sap:VirtualizedContainerService.HintSize="715.3333333333334,1254" sap2010:WorkflowViewState.IdRef="If_5">
+            <If sap:VirtualizedContainerService.HintSize="760,4206" sap2010:WorkflowViewState.IdRef="If_5">
               <If.Condition>
                 <InArgument x:TypeArguments="x:Boolean">
                   <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">CurrentFile.Extension==".pdf" || CurrentFile.Extension==".xlsx"</CSharpValue>
                 </InArgument>
               </If.Condition>
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="636.6666666666666,906.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                <Sequence sap:VirtualizedContainerService.HintSize="681.3333333333334,3858.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_13">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <If sap:VirtualizedContainerService.HintSize="574.6666666666666,478.6666666666667" sap2010:WorkflowViewState.IdRef="If_6">
+                  <If sap:VirtualizedContainerService.HintSize="619.3333333333334,478.6666666666667" sap2010:WorkflowViewState.IdRef="If_6">
                     <If.Condition>
                       <InArgument x:TypeArguments="x:Boolean">
                         <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_13">CurrentFile.Extension==".pdf"</CSharpValue>
@@ -313,18 +290,219 @@
                       </Assign>
                     </If.Else>
                   </If>
-                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="574.6666666666666,277.3333333333333" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                  <If sap:VirtualizedContainerService.HintSize="619.3333333333334,2593.3333333333335" sap2010:WorkflowViewState.IdRef="If_12">
+                    <If.Condition>
+                      <InArgument x:TypeArguments="x:Boolean">
+                        <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_46">fileName.Length&gt;8</CSharpValue>
+                      </InArgument>
+                    </If.Condition>
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="540.6666666666666,1268" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="x:Boolean" Name="isYearFolderExists" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap:VirtualizedContainerService.HintSize="478.6666666666667,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_5">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="s:DateTime">
+                              <CSharpReference x:TypeArguments="s:DateTime" sap2010:WorkflowViewState.IdRef="CSharpReference`1_14">fileDate</CSharpReference>
+                            </OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="s:DateTime">
+                              <CSharpValue x:TypeArguments="s:DateTime" sap2010:WorkflowViewState.IdRef="CSharpValue`1_47">DateTime.ParseExact(fileName.Substring(fileName.Length-8), "ddMMyyyy", CultureInfo.InvariantCulture)</CSharpValue>
+                            </InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <ui:FolderExistsX DisplayName="Folder Exists" sap:VirtualizedContainerService.HintSize="478.6666666666667,136.66666666666666" sap2010:WorkflowViewState.IdRef="FolderExistsX_3">
+                          <ui:FolderExistsX.Exists>
+                            <OutArgument x:TypeArguments="x:Boolean">
+                              <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_15">isYearFolderExists</CSharpReference>
+                            </OutArgument>
+                          </ui:FolderExistsX.Exists>
+                          <ui:FolderExistsX.Path>
+                            <InArgument x:TypeArguments="x:String">
+                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_48">"Files\\Sorted Files\\" + fileDate.Year</CSharpValue>
+                            </InArgument>
+                          </ui:FolderExistsX.Path>
+                        </ui:FolderExistsX>
+                        <If sap:VirtualizedContainerService.HintSize="478.6666666666667,855.3333333333334" sap2010:WorkflowViewState.IdRef="If_13">
+                          <If.Condition>
+                            <InArgument x:TypeArguments="x:Boolean">
+                              <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_49">isYearFolderExists</CSharpValue>
+                            </InArgument>
+                          </If.Condition>
+                          <If.Then>
+                            <Sequence sap:VirtualizedContainerService.HintSize="400,275.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="338,164.66666666666666" sap2010:WorkflowViewState.IdRef="MoveFile_7" Overwrite="True">
+                                <ui:MoveFile.Destination>
+                                  <InArgument x:TypeArguments="x:String">
+                                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_51">"Files\\Sorted Files\\" + fileDate.Year</CSharpValue>
+                                  </InArgument>
+                                </ui:MoveFile.Destination>
+                                <ui:MoveFile.Path>
+                                  <InArgument x:TypeArguments="x:String">
+                                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_50">"Files\\cd00284-intro-to-RPA-with-UiPath-project-main\\" + CurrentFile.Name</CSharpValue>
+                                  </InArgument>
+                                </ui:MoveFile.Path>
+                              </ui:MoveFile>
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence sap:VirtualizedContainerService.HintSize="400,397.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="338,82" sap2010:WorkflowViewState.IdRef="CreateDirectory_3">
+                                <ui:CreateDirectory.Path>
+                                  <InArgument x:TypeArguments="x:String">
+                                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_52">"Files\\Sorted Files\\" + fileDate.Year</CSharpValue>
+                                  </InArgument>
+                                </ui:CreateDirectory.Path>
+                              </ui:CreateDirectory>
+                              <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="338,164.66666666666666" sap2010:WorkflowViewState.IdRef="MoveFile_8" Overwrite="True">
+                                <ui:MoveFile.Destination>
+                                  <InArgument x:TypeArguments="x:String">
+                                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_54">"Files\\Sorted Files\\" + fileDate.Year</CSharpValue>
+                                  </InArgument>
+                                </ui:MoveFile.Destination>
+                                <ui:MoveFile.Path>
+                                  <InArgument x:TypeArguments="x:String">
+                                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_53">"Files\\cd00284-intro-to-RPA-with-UiPath-project-main\\" + CurrentFile.Name</CSharpValue>
+                                  </InArgument>
+                                </ui:MoveFile.Path>
+                              </ui:MoveFile>
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence sap:VirtualizedContainerService.HintSize="540.6666666666666,1142.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="x:Boolean" Name="isTodayFolderExists" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:FolderExistsX DisplayName="Folder Exists" sap:VirtualizedContainerService.HintSize="478.6666666666667,136.66666666666666" sap2010:WorkflowViewState.IdRef="FolderExistsX_1">
+                          <ui:FolderExistsX.Exists>
+                            <OutArgument x:TypeArguments="x:Boolean">
+                              <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_11">isTodayFolderExists</CSharpReference>
+                            </OutArgument>
+                          </ui:FolderExistsX.Exists>
+                          <ui:FolderExistsX.Path>
+                            <InArgument x:TypeArguments="x:String">
+                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_30">"Files\\Sorted Files\\" + DateTime.Now.ToString("MMddyyyy", CultureInfo.InvariantCulture)</CSharpValue>
+                            </InArgument>
+                          </ui:FolderExistsX.Path>
+                        </ui:FolderExistsX>
+                        <If sap:VirtualizedContainerService.HintSize="478.6666666666667,855.3333333333334" sap2010:WorkflowViewState.IdRef="If_10">
+                          <If.Condition>
+                            <InArgument x:TypeArguments="x:Boolean">
+                              <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_31">isTodayFolderExists</CSharpValue>
+                            </InArgument>
+                          </If.Condition>
+                          <If.Then>
+                            <Sequence sap:VirtualizedContainerService.HintSize="400,275.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="338,164.66666666666666" sap2010:WorkflowViewState.IdRef="MoveFile_3" Overwrite="True">
+                                <ui:MoveFile.Destination>
+                                  <InArgument x:TypeArguments="x:String">
+                                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_33">"Files\\Sorted Files\\" + DateTime.Now.ToString("MMddyyyy", CultureInfo.InvariantCulture)</CSharpValue>
+                                  </InArgument>
+                                </ui:MoveFile.Destination>
+                                <ui:MoveFile.Path>
+                                  <InArgument x:TypeArguments="x:String">
+                                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_32">"Files\\cd00284-intro-to-RPA-with-UiPath-project-main\\" + CurrentFile.Name</CSharpValue>
+                                  </InArgument>
+                                </ui:MoveFile.Path>
+                              </ui:MoveFile>
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence sap:VirtualizedContainerService.HintSize="400,397.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="338,82" sap2010:WorkflowViewState.IdRef="CreateDirectory_1">
+                                <ui:CreateDirectory.Path>
+                                  <InArgument x:TypeArguments="x:String">
+                                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_34">"Files\\Sorted Files\\" + DateTime.Now.ToString("MMddyyyy", CultureInfo.InvariantCulture)</CSharpValue>
+                                  </InArgument>
+                                </ui:CreateDirectory.Path>
+                              </ui:CreateDirectory>
+                              <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="338,164.66666666666666" sap2010:WorkflowViewState.IdRef="MoveFile_4" Overwrite="True">
+                                <ui:MoveFile.Destination>
+                                  <InArgument x:TypeArguments="x:String">
+                                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_36">"Files\\Sorted Files\\" + DateTime.Now.ToString("MMddyyyy", CultureInfo.InvariantCulture)</CSharpValue>
+                                  </InArgument>
+                                </ui:MoveFile.Destination>
+                                <ui:MoveFile.Path>
+                                  <InArgument x:TypeArguments="x:String">
+                                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_35">"Files\\cd00284-intro-to-RPA-with-UiPath-project-main\\" + CurrentFile.Name</CSharpValue>
+                                  </InArgument>
+                                </ui:MoveFile.Path>
+                              </ui:MoveFile>
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="619.3333333333334,278.6666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                    <TryCatch.Variables>
+                      <Variable x:TypeArguments="x:Boolean" Name="isTodayFolderExists" />
+                    </TryCatch.Variables>
+                    <TryCatch.Catches>
+                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,105.33333333333333" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ActivityAction x:TypeArguments="s:Exception">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                          </ActivityAction.Argument>
+                        </ActivityAction>
+                      </Catch>
+                    </TryCatch.Catches>
+                  </TryCatch>
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="619.3333333333334,277.3333333333333" sap2010:WorkflowViewState.IdRef="CommentOut_2">
                     <ui:CommentOut.Body>
-                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="400,197.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="400,197.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_25">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="338,86.66666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_4">
+                        <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="338,86.66666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_6">
                           <ui:MessageBox.Text>
                             <InArgument x:TypeArguments="x:Object">
-                              <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_12">fileName</CSharpValue>
+                              <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_27" xml:space="preserve">CurrentFile.Name + "  :  " + fileDate</CSharpValue>
                             </InArgument>
                           </ui:MessageBox.Text>
                         </ui:MessageBox>
