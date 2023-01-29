@@ -4,6 +4,7 @@
     <x:Property Name="fileName" Type="InArgument(x:String)" />
   </x:Members>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap:VirtualizedContainerService.HintSize>986.6666666666665,5388.666666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="42">
@@ -30,6 +31,7 @@
       <x:String>UiPath.Core</x:String>
       <x:String>GlobalVariablesNamespace</x:String>
       <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Linq.Expressions</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -93,7 +95,7 @@
       <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <ui:ForEachFileX DisplayName="For Each File in Folder" Folder="Files\\cd00284-intro-to-RPA-with-UiPath-project-main" sap:VirtualizedContainerService.HintSize="856,3942.6666666666665" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
+  <ui:ForEachFileX DisplayName="For Each File in Folder" Folder="Files\\cd00284-intro-to-RPA-with-UiPath-project-main" sap:VirtualizedContainerService.HintSize="996.6666666666666,5324" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
     <ui:ForEachFileX.Body>
       <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
         <ActivityAction.Argument1>
@@ -102,26 +104,26 @@
         <ActivityAction.Argument2>
           <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
         </ActivityAction.Argument2>
-        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="822,3680.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_12">
+        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="962.6666666666666,5062" sap2010:WorkflowViewState.IdRef="Sequence_12">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <If sap:VirtualizedContainerService.HintSize="760,3570" sap2010:WorkflowViewState.IdRef="If_5">
+          <If sap:VirtualizedContainerService.HintSize="900.6666666666666,4951.333333333333" sap2010:WorkflowViewState.IdRef="If_5">
             <If.Condition>
               <InArgument x:TypeArguments="x:Boolean">
                 <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">CurrentFile.Extension==".pdf" || CurrentFile.Extension==".xlsx"</CSharpValue>
               </InArgument>
             </If.Condition>
             <If.Then>
-              <Sequence sap:VirtualizedContainerService.HintSize="681.3333333333334,3222.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_13">
+              <Sequence sap:VirtualizedContainerService.HintSize="822,4604" sap2010:WorkflowViewState.IdRef="Sequence_13">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <If sap:VirtualizedContainerService.HintSize="619.3333333333334,478.6666666666667" sap2010:WorkflowViewState.IdRef="If_6">
+                <If sap:VirtualizedContainerService.HintSize="760,478.6666666666667" sap2010:WorkflowViewState.IdRef="If_6">
                   <If.Condition>
                     <InArgument x:TypeArguments="x:Boolean">
                       <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_13">CurrentFile.Extension==".pdf"</CSharpValue>
@@ -163,14 +165,14 @@
                     </Assign>
                   </If.Else>
                 </If>
-                <If sap:VirtualizedContainerService.HintSize="619.3333333333334,2593.3333333333335" sap2010:WorkflowViewState.IdRef="If_12">
+                <If sap:VirtualizedContainerService.HintSize="760,3974.6666666666665" sap2010:WorkflowViewState.IdRef="If_12">
                   <If.Condition>
                     <InArgument x:TypeArguments="x:Boolean">
                       <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_46">fileName.Length&gt;8</CSharpValue>
                     </InArgument>
                   </If.Condition>
                   <If.Then>
-                    <Sequence sap:VirtualizedContainerService.HintSize="540.6666666666666,1268" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                    <Sequence sap:VirtualizedContainerService.HintSize="681.3333333333334,2649.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_33">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="x:Boolean" Name="isYearFolderExists" />
                       </Sequence.Variables>
@@ -180,7 +182,7 @@
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Assign sap:VirtualizedContainerService.HintSize="478.6666666666667,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_5">
+                      <Assign sap:VirtualizedContainerService.HintSize="619.3333333333334,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_5">
                         <Assign.To>
                           <OutArgument x:TypeArguments="s:DateTime">
                             <CSharpReference x:TypeArguments="s:DateTime" sap2010:WorkflowViewState.IdRef="CSharpReference`1_14">fileDate</CSharpReference>
@@ -192,7 +194,7 @@
                           </InArgument>
                         </Assign.Value>
                       </Assign>
-                      <ui:FolderExistsX DisplayName="Folder Exists" sap:VirtualizedContainerService.HintSize="478.6666666666667,136.66666666666666" sap2010:WorkflowViewState.IdRef="FolderExistsX_3">
+                      <ui:FolderExistsX DisplayName="Folder Exists" sap:VirtualizedContainerService.HintSize="619.3333333333334,136.66666666666666" sap2010:WorkflowViewState.IdRef="FolderExistsX_3">
                         <ui:FolderExistsX.Exists>
                           <OutArgument x:TypeArguments="x:Boolean">
                             <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_15">isYearFolderExists</CSharpReference>
@@ -204,59 +206,147 @@
                           </InArgument>
                         </ui:FolderExistsX.Path>
                       </ui:FolderExistsX>
-                      <If sap:VirtualizedContainerService.HintSize="478.6666666666667,855.3333333333334" sap2010:WorkflowViewState.IdRef="If_13">
+                      <If sap:VirtualizedContainerService.HintSize="619.3333333333334,2236.6666666666665" sap2010:WorkflowViewState.IdRef="If_13">
                         <If.Condition>
                           <InArgument x:TypeArguments="x:Boolean">
                             <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_49">isYearFolderExists</CSharpValue>
                           </InArgument>
                         </If.Condition>
                         <If.Then>
-                          <Sequence sap:VirtualizedContainerService.HintSize="400,275.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                          <Sequence sap:VirtualizedContainerService.HintSize="540.6666666666666,844" sap2010:WorkflowViewState.IdRef="Sequence_31">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="338,164.66666666666666" sap2010:WorkflowViewState.IdRef="MoveFile_7" Overwrite="True">
-                              <ui:MoveFile.Destination>
-                                <InArgument x:TypeArguments="x:String">
-                                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_51">"Files\\Sorted Files\\" + fileDate.Year</CSharpValue>
+                            <If sap:VirtualizedContainerService.HintSize="478.6666666666667,733.3333333333334" sap2010:WorkflowViewState.IdRef="If_15">
+                              <If.Condition>
+                                <InArgument x:TypeArguments="x:Boolean">
+                                  <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_58">CurrentFile.Extension==".pdf"</CSharpValue>
                                 </InArgument>
-                              </ui:MoveFile.Destination>
-                              <ui:MoveFile.Path>
-                                <InArgument x:TypeArguments="x:String">
-                                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_50">"Files\\cd00284-intro-to-RPA-with-UiPath-project-main\\" + CurrentFile.Name</CSharpValue>
-                                </InArgument>
-                              </ui:MoveFile.Path>
-                            </ui:MoveFile>
+                              </If.Condition>
+                              <If.Then>
+                                <Sequence sap:VirtualizedContainerService.HintSize="400,275.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="338,164.66666666666666" sap2010:WorkflowViewState.IdRef="MoveFile_7" Overwrite="True">
+                                    <ui:MoveFile.Destination>
+                                      <InArgument x:TypeArguments="x:String">
+                                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_62">"Files\\Sorted Files\\" + fileDate.Year +"\\PDF"</CSharpValue>
+                                      </InArgument>
+                                    </ui:MoveFile.Destination>
+                                    <ui:MoveFile.Path>
+                                      <InArgument x:TypeArguments="x:String">
+                                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_50">"Files\\cd00284-intro-to-RPA-with-UiPath-project-main\\" + CurrentFile.Name</CSharpValue>
+                                      </InArgument>
+                                    </ui:MoveFile.Path>
+                                  </ui:MoveFile>
+                                </Sequence>
+                              </If.Then>
+                              <If.Else>
+                                <Sequence sap:VirtualizedContainerService.HintSize="400,275.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="338,164.66666666666666" sap2010:WorkflowViewState.IdRef="MoveFile_10" Overwrite="True">
+                                    <ui:MoveFile.Destination>
+                                      <InArgument x:TypeArguments="x:String">
+                                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_64">"Files\\Sorted Files\\" + fileDate.Year +"\\XLS"</CSharpValue>
+                                      </InArgument>
+                                    </ui:MoveFile.Destination>
+                                    <ui:MoveFile.Path>
+                                      <InArgument x:TypeArguments="x:String">
+                                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_63">"Files\\cd00284-intro-to-RPA-with-UiPath-project-main\\" + CurrentFile.Name</CSharpValue>
+                                      </InArgument>
+                                    </ui:MoveFile.Path>
+                                  </ui:MoveFile>
+                                </Sequence>
+                              </If.Else>
+                            </If>
                           </Sequence>
                         </If.Then>
                         <If.Else>
-                          <Sequence sap:VirtualizedContainerService.HintSize="400,397.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                          <Sequence sap:VirtualizedContainerService.HintSize="540.6666666666666,1210" sap2010:WorkflowViewState.IdRef="Sequence_32">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="338,82" sap2010:WorkflowViewState.IdRef="CreateDirectory_3">
+                            <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="478.6666666666667,82" sap2010:WorkflowViewState.IdRef="CreateDirectory_3">
                               <ui:CreateDirectory.Path>
                                 <InArgument x:TypeArguments="x:String">
                                   <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_52">"Files\\Sorted Files\\" + fileDate.Year</CSharpValue>
                                 </InArgument>
                               </ui:CreateDirectory.Path>
                             </ui:CreateDirectory>
-                            <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="338,164.66666666666666" sap2010:WorkflowViewState.IdRef="MoveFile_8" Overwrite="True">
-                              <ui:MoveFile.Destination>
+                            <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="478.6666666666667,82" sap2010:WorkflowViewState.IdRef="CreateDirectory_4">
+                              <ui:CreateDirectory.Path>
                                 <InArgument x:TypeArguments="x:String">
-                                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_54">"Files\\Sorted Files\\" + fileDate.Year</CSharpValue>
+                                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_55">"Files\\Sorted Files\\" + fileDate.Year +"\\XLS"</CSharpValue>
                                 </InArgument>
-                              </ui:MoveFile.Destination>
-                              <ui:MoveFile.Path>
+                              </ui:CreateDirectory.Path>
+                            </ui:CreateDirectory>
+                            <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="478.6666666666667,82" sap2010:WorkflowViewState.IdRef="CreateDirectory_5">
+                              <ui:CreateDirectory.Path>
                                 <InArgument x:TypeArguments="x:String">
-                                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_53">"Files\\cd00284-intro-to-RPA-with-UiPath-project-main\\" + CurrentFile.Name</CSharpValue>
+                                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_56">"Files\\Sorted Files\\" + fileDate.Year +"\\PDF"</CSharpValue>
                                 </InArgument>
-                              </ui:MoveFile.Path>
-                            </ui:MoveFile>
+                              </ui:CreateDirectory.Path>
+                            </ui:CreateDirectory>
+                            <If sap:VirtualizedContainerService.HintSize="478.6666666666667,733.3333333333334" sap2010:WorkflowViewState.IdRef="If_14">
+                              <If.Condition>
+                                <InArgument x:TypeArguments="x:Boolean">
+                                  <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_57">CurrentFile.Extension==".pdf"</CSharpValue>
+                                </InArgument>
+                              </If.Condition>
+                              <If.Then>
+                                <Sequence sap:VirtualizedContainerService.HintSize="400,275.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="338,164.66666666666666" sap2010:WorkflowViewState.IdRef="MoveFile_8" Overwrite="True">
+                                    <ui:MoveFile.Destination>
+                                      <InArgument x:TypeArguments="x:String">
+                                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_59">"Files\\Sorted Files\\" + fileDate.Year + "\\PDF"</CSharpValue>
+                                      </InArgument>
+                                    </ui:MoveFile.Destination>
+                                    <ui:MoveFile.Path>
+                                      <InArgument x:TypeArguments="x:String">
+                                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_53">"Files\\cd00284-intro-to-RPA-with-UiPath-project-main\\" + CurrentFile.Name</CSharpValue>
+                                      </InArgument>
+                                    </ui:MoveFile.Path>
+                                  </ui:MoveFile>
+                                </Sequence>
+                              </If.Then>
+                              <If.Else>
+                                <Sequence sap:VirtualizedContainerService.HintSize="400,275.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="338,164.66666666666666" sap2010:WorkflowViewState.IdRef="MoveFile_9" Overwrite="True">
+                                    <ui:MoveFile.Destination>
+                                      <InArgument x:TypeArguments="x:String">
+                                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_61">"Files\\Sorted Files\\" + fileDate.Year + "\\XLS"</CSharpValue>
+                                      </InArgument>
+                                    </ui:MoveFile.Destination>
+                                    <ui:MoveFile.Path>
+                                      <InArgument x:TypeArguments="x:String">
+                                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_60">"Files\\cd00284-intro-to-RPA-with-UiPath-project-main\\" + CurrentFile.Name</CSharpValue>
+                                      </InArgument>
+                                    </ui:MoveFile.Path>
+                                  </ui:MoveFile>
+                                </Sequence>
+                              </If.Else>
+                            </If>
                           </Sequence>
                         </If.Else>
                       </If>
